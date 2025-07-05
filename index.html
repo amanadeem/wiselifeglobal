@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wise Life Academy: Professional Certificate in AI & Machine Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-step {
+            border-left: 3px solid #00A1E4;
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2.5rem;
+        }
+        .flowchart-step:last-child {
+            border-left: 3px solid transparent;
+            padding-bottom: 0;
+        }
+        .flowchart-dot {
+            position: absolute;
+            left: -11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00A1E4;
+            border: 3px solid #f8fafc;
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border-top: 4px solid #00B8C8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">Wise Life Academy</h1>
+            <p class="mt-2 text-lg font-semibold" style="color: #00A1E4;">Professional Certificate in AI & Machine Learning</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Launch Your Career in Artificial Intelligence in Just 4 Months</h2>
+            <p class="max-w-3xl mx-auto text-slate-600">This intensive, hands-on program is designed to transform university graduates into job-ready AI professionals. We focus on building a strong portfolio of practical projects that solve real-world business problems.</p>
+        </section>
+
+        <section id="kpis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div class="kpi-card">
+                <p class="text-5xl font-extrabold" style="color: #00A1E4;">4</p>
+                <p class="text-lg font-semibold text-slate-700 mt-2">Core Modules</p>
+            </div>
+            <div class="kpi-card">
+                <p class="text-5xl font-extrabold" style="color: #00B8C8;">15</p>
+                <p class="text-lg font-semibold text-slate-700 mt-2">Intensive Weeks</p>
+            </div>
+            <div class="kpi-card">
+                <p class="text-5xl font-extrabold" style="color: #00C2B2;">4+</p>
+                <p class="text-lg font-semibold text-slate-700 mt-2">Portfolio Projects</p>
+            </div>
+            <div class="kpi-card">
+                <p class="text-5xl font-extrabold" style="color: #00C898;">100%</p>
+                <p class="text-lg font-semibold text-slate-700 mt-2">Career Focused</p>
+            </div>
+        </section>
+
+        <section id="journey" class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 items-center">
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4 text-center">Your 4-Month Journey</h3>
+                <p class="text-slate-600 mb-6 text-center">Our curriculum is structured as a clear, progressive path from fundamentals to advanced deployment, ensuring you build a comprehensive skill set step-by-step.</p>
+                <div class="relative">
+                    <div class="flowchart-step">
+                        <div class="flowchart-dot"></div>
+                        <h4 class="font-bold text-lg">Module 1: The AI Professional's Toolkit</h4>
+                        <p class="text-slate-600">Master essential tools like Python, Pandas, and Git.</p>
+                    </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-dot"></div>
+                        <h4 class="font-bold text-lg">Module 2: Build & Deploy Predictive Models</h4>
+                        <p class="text-slate-600">From theory to live web applications.</p>
+                    </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-dot"></div>
+                        <h4 class="font-bold text-lg">Module 3: AI for Unstructured Data</h4>
+                        <p class="text-slate-600">Dive into NLP and Computer Vision.</p>
+                    </div>
+                    <div class="flowchart-step">
+                        <div class="flowchart-dot"></div>
+                        <h4 class="font-bold text-lg">Module 4: Capstone & Career Accelerator</h4>
+                        <p class="text-slate-600">Build an end-to-end solution and prepare for interviews.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-center">Course Focus Distribution</h3>
+                <p class="text-slate-600 mb-4 text-center">We emphasize learning by doing. The majority of your time will be spent on hands-on labs and building projects for your portfolio.</p>
+                <div class="chart-container">
+                    <canvas id="focusDistributionChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="module1" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #00A1E4;">Module 1: The AI Professional's Toolkit (Weeks 1-4)</h3>
+                    <p class="text-slate-600 mb-4">The first month is dedicated to building a rock-solid foundation. You will gain fluency in the core technologies that every AI and Data Science professional relies on daily. This ensures you are prepared for the more complex topics ahead.</p>
+                    <p class="text-slate-600"><strong>Portfolio Project:</strong> A comprehensive Exploratory Data Analysis (EDA) of a real-world business dataset, presented with compelling data visualizations and actionable insights.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-center mb-4">Toolkit Skill Emphasis</h4>
+                    <div class="chart-container" style="max-height:300px;">
+                        <canvas id="toolkitChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="module2" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                 <div>
+                    <h4 class="text-lg font-semibold text-center mb-4">From Model to Live Application</h4>
+                    <div class="space-y-4 text-center">
+                        <div class="p-4 bg-slate-100 rounded-lg">
+                            <span class="text-2xl font-bold" style="color: #00B8C8;">1. Build Model</span>
+                            <p class="text-slate-600">Train models using Scikit-Learn.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-slate-400">↓</div>
+                        <div class="p-4 bg-slate-100 rounded-lg">
+                            <span class="text-2xl font-bold" style="color: #00B8C8;">2. Create API</span>
+                            <p class="text-slate-600">Wrap the model in a FastAPI service.</p>
+                        </div>
+                         <div class="text-2xl font-bold text-slate-400">↓</div>
+                        <div class="p-4 bg-slate-100 rounded-lg">
+                            <span class="text-2xl font-bold" style="color: #00B8C8;">3. Deploy App</span>
+                             <p class="text-slate-600">Launch a live predictive web application.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:order-first">
+                    <h3 class="text-2xl font-bold mb-4" style="color: #00B8C8;">Module 2: Building & Deploying Predictive Models (Weeks 5-8)</h3>
+                    <p class="text-slate-600 mb-4">Go beyond theory and learn the complete lifecycle of a machine learning project. This module bridges the gap between building a model on your laptop and deploying it as a useful, live application on the web.</p>
+                    <p class="text-slate-600"><strong>Portfolio Project:</strong> A fully deployed predictive web application, such as a house price predictor or a customer churn forecaster, complete with a user-friendly interface.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="module3" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #00C2B2;">Module 3: AI for Unstructured Data (Weeks 9-11)</h3>
+                    <p class="text-slate-600 mb-4">Tackle the data that powers modern AI: text and images. This module introduces you to the exciting fields of Natural Language Processing (NLP) and Computer Vision, opening the door to creating applications like chatbots, sentiment analyzers, and image classifiers.</p>
+                    <p class="text-slate-600"><strong>Portfolio Project:</strong> An intelligent application for text or image data, such as a tool to analyze product review sentiment or an object detector for a specific use-case.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-center mb-4">Advanced Skill Radar</h4>
+                    <div class="chart-container">
+                        <canvas id="advancedSkillsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="module4" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="md:order-last">
+                    <h3 class="text-2xl font-bold mb-4" style="color: #00C898;">Module 4: Capstone & Career Accelerator (Weeks 12-15)</h3>
+                    <p class="text-slate-600 mb-4">The final month is where everything comes together. You will build a comprehensive, end-to-end AI solution for your capstone project while aggressively preparing for the job market through mock interviews, resume workshops, and portfolio reviews.</p>
+                    <p class="text-slate-600"><strong>Capstone Project:</strong> A major, self-directed AI solution that showcases your full range of skills to potential employers.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-center mb-4">Final Month Breakdown</h4>
+                    <div class="chart-container" style="max-height:300px;">
+                        <canvas id="finalMonthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-10 border-t-2 border-slate-200">
+             <h2 class="text-3xl font-bold mb-4">Ready to Build Your Future in AI?</h2>
+             <p class="text-slate-600 max-w-2xl mx-auto mb-6">Join a new generation of innovators and problem-solvers. Your journey starts at Wise Life Academy.</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition-transform transform hover:scale-105" style="background-color: #00A1E4;">
+                 Enroll Now
+             </button>
+        </footer>
+
+    </main>
+
+    <script>
+        const brilliantBlues = ['#00A1E4', '#00B8C8', '#00C2B2', '#00C898', '#00CC80'];
+
+        function wrapLabels(label, maxWidth) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines.length > 0 ? lines : [label];
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+        
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 12
+                        },
+                        color: '#475569'
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+        };
+
+        new Chart(document.getElementById('focusDistributionChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Practical Labs & Exercises', 'Portfolio Project Work', 'Theory & Concepts'],
+                datasets: [{
+                    label: 'Course Focus',
+                    data: [50, 35, 15],
+                    backgroundColor: brilliantBlues.slice(0, 3),
+                    borderColor: '#f8fafc',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                cutout: '70%',
+            }
+        });
+
+        const toolkitLabels = ['Python for AI', 'Pandas & NumPy', 'Git & GitHub', 'Data Visualization', 'Scikit-Learn Intro'];
+        new Chart(document.getElementById('toolkitChart'), {
+            type: 'bar',
+            data: {
+                labels: toolkitLabels.map(label => wrapLabels(label, 16)),
+                datasets: [{
+                    label: 'Skill Emphasis (Hours)',
+                    data: [30, 25, 15, 20, 10],
+                    backgroundColor: brilliantBlues[0],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                indexAxis: 'y',
+                 plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('advancedSkillsChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Natural Language Processing (NLP)', 'Deep Learning', 'Computer Vision', 'Generative AI APIs', 'Model Deployment'],
+                datasets: [{
+                    label: 'Skill Level Achieved',
+                    data: [8, 7, 7, 8, 6],
+                    backgroundColor: 'rgba(0, 194, 178, 0.2)',
+                    borderColor: '#00C2B2',
+                    pointBackgroundColor: '#00C2B2',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#00C2B2',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: '#e2e8f0' },
+                        grid: { color: '#e2e8f0' },
+                        pointLabels: { font: { size: 12 }, color: '#475569' },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: '#64748b'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('finalMonthChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Week 12-15 Focus'],
+                datasets: [
+                    {
+                        label: 'Capstone Development',
+                        data: [50],
+                        backgroundColor: brilliantBlues[1],
+                    },
+                    {
+                        label: 'Interview Prep & Mock Interviews',
+                        data: [30],
+                        backgroundColor: brilliantBlues[2],
+                    },
+                    {
+                        label: 'Portfolio & Resume Clinic',
+                        data: [20],
+                        backgroundColor: brilliantBlues[3],
+                    }
+                ]
+            },
+            options: {
+                ...commonChartOptions,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true,
+                         display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
