@@ -1,441 +1,1118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wise Life Academy: Professional Certificate in AI & Machine Learning</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareeqah Muhammadiyah - Character Building & Spiritual Purification</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#004888',
+            secondary: '#053301',
+            accent: '#fab700',
+            gold: '#c9a227',
+            cream: '#faf8f5',
+            warmgray: '#414042',
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            body: ['Montserrat', 'sans-serif'],
+          }
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-        .flowchart-step {
-            border-left: 3px solid #00A1E4;
-            position: relative;
-            padding-left: 2rem;
-            padding-bottom: 2.5rem;
-        }
-        .flowchart-step:last-child {
-            border-left: 3px solid transparent;
-            padding-bottom: 0;
-        }
-        .flowchart-dot {
-            position: absolute;
-            left: -11px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #00A1E4;
-            border: 3px solid #f8fafc;
-        }
-        .kpi-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            border-top: 4px solid #00B8C8;
-        }
-    </style>
+      }
+    }
+  </script>
+  
+  <style>
+    :root {
+      --primary: #004888;
+      --secondary: #053301;
+      --accent: #fab700;
+      --gold: #c9a227;
+      --cream: #faf8f5;
+      --warmgray: #414042;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--cream);
+      color: #3a3a3a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .font-display {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .animate-slide-down {
+      animation: slideDown 0.5s ease-out forwards;
+    }
+    
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    
+    /* Header styles */
+    .header-top {
+      background: linear-gradient(135deg, var(--secondary) 0%, #0a4d02 100%);
+    }
+    
+    .header-top::after {
+      content: '';
+      position: absolute;
+      background: var(--primary);
+      width: 55%;
+      height: 180px;
+      right: 5%;
+      top: -60%;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    
+    @media (min-width: 1400px) {
+      .header-top::after {
+        width: 50%;
+        right: 10%;
+      }
+    }
+    
+    /* Navigation */
+    .nav-link {
+      position: relative;
+      color: #3a3a3a;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    /* Dropdown */
+    .dropdown-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    /* Hero Slider */
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .slide.active {
+      opacity: 1;
+      position: relative;
+    }
+    
+    /* Button styles */
+    .btn-primary {
+      background: var(--secondary);
+      color: white;
+      padding: 14px 50px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--secondary);
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 72, 136, 0.3);
+    }
+    
+    .btn-accent {
+      background: var(--accent);
+      color: #000;
+      padding: 10px 24px;
+      border-radius: 20px 20px 0 0;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-accent:hover {
+      background: #e5a600;
+      transform: translateY(-2px);
+    }
+    
+    /* Card styles */
+    .info-card {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 72, 136, 0.15);
+    }
+    
+    /* Newsletter carousel */
+    .newsletter-carousel {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 20px 0;
+    }
+    
+    .newsletter-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .newsletter-item {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
+    }
+    
+    .newsletter-item:hover {
+      transform: scale(1.03);
+    }
+    
+    /* Social feed card */
+    .social-header {
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+    }
+    
+    /* Section backgrounds */
+    .bg-pattern {
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(0, 72, 136, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(5, 51, 1, 0.03) 0%, transparent 50%);
+    }
+    
+    /* Footer gradient */
+    .footer-gradient {
+      background: linear-gradient(180deg, var(--warmgray) 0%, #2a2a2a 100%);
+    }
+    
+    /* Islamic geometric pattern overlay */
+    .pattern-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0z' fill='%23004888' fill-opacity='0.02'/%3E%3C/svg%3E");
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    
+    /* Hamburger animation */
+    .hamburger span {
+      transition: all 0.3s ease;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Focus states */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px dotted var(--primary);
+      outline-offset: 2px;
+    }
+    
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .header-top::after {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
-
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto px-6 py-4 text-center">
-            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">Wise Life Academy</h1>
-            <p class="mt-2 text-lg font-semibold" style="color: #00A1E4;">Professional Certificate in AI & Machine Learning</p>
+<body>
+  
+  <!-- Header -->
+  <header class="relative z-50">
+    <!-- Top Bar -->
+    <div class="header-top relative py-3 px-4 lg:px-8">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+        <!-- Logo -->
+        <a href="#" class="animate-fade-in">
+          <img src="https://zawiyah.org/wp-content/uploads/2020/06/LOGO-1.png" alt="Tareeqah Muhammadiyah" width="150" height="31" class="h-auto w-32 lg:w-40">
+        </a>
+        
+        <!-- Desktop: Search, Date, Social -->
+        <div class="hidden lg:flex items-center gap-6">
+          <!-- Search -->
+          <form class="relative animate-fade-in stagger-1">
+            <input type="search" placeholder="Search..." class="bg-white/10 border border-white/20 rounded-full py-2 px-4 pr-10 text-white placeholder-white/70 text-sm focus:outline-none focus:border-white/50 w-48">
+            <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </button>
+          </form>
+          
+          <!-- Date -->
+          <div class="text-white/90 text-sm animate-fade-in stagger-2" id="islamicDate">
+            <span class="text-white font-medium">Loading date...</span>
+          </div>
+          
+          <!-- Social Icons -->
+          <div class="flex items-center gap-3 animate-fade-in stagger-3">
+            <a href="https://www.facebook.com/ShaykhAhmadDabbagh/" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/80 hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com/sahmaddabbagh" target="_blank" rel="noopener" aria-label="Twitter" class="text-white/80 hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCFhKY3_zHhsy6ap7TGUaOkQ" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/80 hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/sahmaddabbagh/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/80 hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@s.ahmad.dabbagh1" target="_blank" rel="noopener" aria-label="TikTok" class="text-white/80 hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
         </div>
-    </header>
-
-    <main class="container mx-auto p-4 md:p-8">
-
-        <section id="intro" class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4">Launch Your Career in Artificial Intelligence in Just 4 Months</h2>
-            <p class="max-w-3xl mx-auto text-slate-600">This intensive, hands-on program is designed to transform university graduates into job-ready AI professionals. We focus on building a strong portfolio of practical projects that solve real-world business problems.</p>
-        </section>
-
-        <section id="kpis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div class="kpi-card">
-                <p class="text-5xl font-extrabold" style="color: #00A1E4;">4</p>
-                <p class="text-lg font-semibold text-slate-700 mt-2">Core Modules</p>
-            </div>
-            <div class="kpi-card">
-                <p class="text-5xl font-extrabold" style="color: #00B8C8;">15</p>
-                <p class="text-lg font-semibold text-slate-700 mt-2">Intensive Weeks</p>
-            </div>
-            <div class="kpi-card">
-                <p class="text-5xl font-extrabold" style="color: #00C2B2;">4+</p>
-                <p class="text-lg font-semibold text-slate-700 mt-2">Portfolio Projects</p>
-            </div>
-            <div class="kpi-card">
-                <p class="text-5xl font-extrabold" style="color: #00C898;">100%</p>
-                <p class="text-lg font-semibold text-slate-700 mt-2">Career Focused</p>
-            </div>
-        </section>
-
-        <section id="journey" class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 items-center">
-            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold mb-4 text-center">Your 4-Month Journey</h3>
-                <p class="text-slate-600 mb-6 text-center">Our curriculum is structured as a clear, progressive path from fundamentals to advanced deployment, ensuring you build a comprehensive skill set step-by-step.</p>
-                <div class="relative">
-                    <div class="flowchart-step">
-                        <div class="flowchart-dot"></div>
-                        <h4 class="font-bold text-lg">Module 1: The AI Professional's Toolkit</h4>
-                        <p class="text-slate-600">Master essential tools like Python, Pandas, and Git.</p>
-                    </div>
-                    <div class="flowchart-step">
-                        <div class="flowchart-dot"></div>
-                        <h4 class="font-bold text-lg">Module 2: Build & Deploy Predictive Models</h4>
-                        <p class="text-slate-600">From theory to live web applications.</p>
-                    </div>
-                    <div class="flowchart-step">
-                        <div class="flowchart-dot"></div>
-                        <h4 class="font-bold text-lg">Module 3: AI for Unstructured Data</h4>
-                        <p class="text-slate-600">Dive into NLP and Computer Vision.</p>
-                    </div>
-                    <div class="flowchart-step">
-                        <div class="flowchart-dot"></div>
-                        <h4 class="font-bold text-lg">Module 4: Capstone & Career Accelerator</h4>
-                        <p class="text-slate-600">Build an end-to-end solution and prepare for interviews.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold mb-2 text-center">Course Focus Distribution</h3>
-                <p class="text-slate-600 mb-4 text-center">We emphasize learning by doing. The majority of your time will be spent on hands-on labs and building projects for your portfolio.</p>
-                <div class="chart-container">
-                    <canvas id="focusDistributionChart"></canvas>
-                </div>
-            </div>
-        </section>
-
-        <section id="module1" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: #00A1E4;">Module 1: The AI Professional's Toolkit (Weeks 1-4)</h3>
-                    <p class="text-slate-600 mb-4">The first month is dedicated to building a rock-solid foundation. You will gain fluency in the core technologies that every AI and Data Science professional relies on daily. This ensures you are prepared for the more complex topics ahead.</p>
-                    <p class="text-slate-600"><strong>Portfolio Project:</strong> A comprehensive Exploratory Data Analysis (EDA) of a real-world business dataset, presented with compelling data visualizations and actionable insights.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold text-center mb-4">Toolkit Skill Emphasis</h4>
-                    <div class="chart-container" style="max-height:300px;">
-                        <canvas id="toolkitChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
         
-        <section id="module2" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                 <div>
-                    <h4 class="text-lg font-semibold text-center mb-4">From Model to Live Application</h4>
-                    <div class="space-y-4 text-center">
-                        <div class="p-4 bg-slate-100 rounded-lg">
-                            <span class="text-2xl font-bold" style="color: #00B8C8;">1. Build Model</span>
-                            <p class="text-slate-600">Train models using Scikit-Learn.</p>
-                        </div>
-                        <div class="text-2xl font-bold text-slate-400">↓</div>
-                        <div class="p-4 bg-slate-100 rounded-lg">
-                            <span class="text-2xl font-bold" style="color: #00B8C8;">2. Create API</span>
-                            <p class="text-slate-600">Wrap the model in a FastAPI service.</p>
-                        </div>
-                         <div class="text-2xl font-bold text-slate-400">↓</div>
-                        <div class="p-4 bg-slate-100 rounded-lg">
-                            <span class="text-2xl font-bold" style="color: #00B8C8;">3. Deploy App</span>
-                             <p class="text-slate-600">Launch a live predictive web application.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:order-first">
-                    <h3 class="text-2xl font-bold mb-4" style="color: #00B8C8;">Module 2: Building & Deploying Predictive Models (Weeks 5-8)</h3>
-                    <p class="text-slate-600 mb-4">Go beyond theory and learn the complete lifecycle of a machine learning project. This module bridges the gap between building a model on your laptop and deploying it as a useful, live application on the web.</p>
-                    <p class="text-slate-600"><strong>Portfolio Project:</strong> A fully deployed predictive web application, such as a house price predictor or a customer churn forecaster, complete with a user-friendly interface.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="module3" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: #00C2B2;">Module 3: AI for Unstructured Data (Weeks 9-11)</h3>
-                    <p class="text-slate-600 mb-4">Tackle the data that powers modern AI: text and images. This module introduces you to the exciting fields of Natural Language Processing (NLP) and Computer Vision, opening the door to creating applications like chatbots, sentiment analyzers, and image classifiers.</p>
-                    <p class="text-slate-600"><strong>Portfolio Project:</strong> An intelligent application for text or image data, such as a tool to analyze product review sentiment or an object detector for a specific use-case.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold text-center mb-4">Advanced Skill Radar</h4>
-                    <div class="chart-container">
-                        <canvas id="advancedSkillsChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Mobile Menu Button -->
+        <button class="hamburger lg:hidden flex flex-col gap-1.5 p-2" id="mobileMenuBtn" aria-label="Toggle menu">
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md relative z-40">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8">
+        <ul class="hidden lg:flex items-center justify-center gap-1 py-3" id="mainNav">
+          <li><a href="#" class="nav-link px-4 py-2 text-sm">Home</a></li>
+          
+          <li class="relative dropdown">
+            <a href="#" class="nav-link px-4 py-2 text-sm flex items-center gap-1">
+              About Us
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu absolute top-full left-0 bg-white shadow-lg rounded-b min-w-64 py-2 border-t-2 border-primary">
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Origins of Tareeqah Muhammadiyah</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Sanad - Spiritual Chain</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Sayyiduna Abdul Aziz Ad-Dabbagh</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Shaykh Ahmad Dabbagh</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Trainers</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Wiselife Academy</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Dabbagh Welfare Trust</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Jaamiah Muhammadiyah</a></li>
+            </ul>
+          </li>
+          
+          <li class="relative dropdown">
+            <a href="#" class="nav-link px-4 py-2 text-sm flex items-center gap-1">
+              Purification
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu absolute top-full left-0 bg-white shadow-lg rounded-b min-w-56 py-2 border-t-2 border-primary">
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Journey of Man</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">First Stage of Purification</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Second Stage of Purification</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Third Stage of Purification</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Fourth Stage of Purification</a></li>
+            </ul>
+          </li>
+          
+          <li class="relative dropdown">
+            <a href="#" class="nav-link px-4 py-2 text-sm flex items-center gap-1">
+              Spirituality
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu absolute top-full left-0 bg-white shadow-lg rounded-b min-w-56 py-2 border-t-2 border-primary">
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Unveiling of the Unseen</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Muraqabah e Muhammadiyah</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Muraqabah Du'a</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Spiritual Healing</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Spiritual Salah</a></li>
+            </ul>
+          </li>
+          
+          <li class="relative dropdown">
+            <a href="#" class="nav-link px-4 py-2 text-sm flex items-center gap-1">
+              Media
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu absolute top-full left-0 bg-white shadow-lg rounded-b min-w-48 py-2 border-t-2 border-primary">
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Gallery</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Audio</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Video</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Sounds of Heaven Video</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="#" class="nav-link px-4 py-2 text-sm">Literature</a></li>
+          <li><a href="#" class="nav-link px-4 py-2 text-sm">Contact Us</a></li>
+          <li>
+            <a href="#" class="btn-accent text-sm ml-2">Invite Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-y-0 left-0 w-80 bg-secondary z-50 lg:hidden" id="mobileMenu">
+      <div class="p-6">
+        <button class="absolute top-4 right-4 text-white" id="closeMobileMenu" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
         
-        <section id="module4" class="bg-white p-6 md:p-8 rounded-lg shadow-lg mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="md:order-last">
-                    <h3 class="text-2xl font-bold mb-4" style="color: #00C898;">Module 4: Capstone & Career Accelerator (Weeks 12-15)</h3>
-                    <p class="text-slate-600 mb-4">The final month is where everything comes together. You will build a comprehensive, end-to-end AI solution for your capstone project while aggressively preparing for the job market through mock interviews, resume workshops, and portfolio reviews.</p>
-                    <p class="text-slate-600"><strong>Capstone Project:</strong> A major, self-directed AI solution that showcases your full range of skills to potential employers.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold text-center mb-4">Final Month Breakdown</h4>
-                    <div class="chart-container" style="max-height:300px;">
-                        <canvas id="finalMonthChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Us Section -->
-        <section id="contact" class="py-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Get In Touch</h2>
-                <p class="mt-3 max-w-2xl mx-auto text-slate-600">We're here to answer your questions. Reach out to us or visit our campus in Lahore.</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
-                <!-- Left Column: Contact Info & Video -->
-                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg space-y-6">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4">Contact & Visit Us</h3>
-                        <ul class="space-y-4 text-lg">
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 mr-3 text-blue-500" style="color: #00A1E4;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                <a href="tel:03240533559" class="text-slate-700 hover:text-blue-600">0324-0533559</a>
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 mr-3 text-blue-500" style="color: #00A1E4;" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12c3.138 0 5.994-1.183 8.16-3.125-.453-.08-.91-.18-1.358-.283-.4-.09-.79-.18-1.17-.27-.11-.02-.22-.05-.33-.07-.33-.07-.65-.14-.98-.2-1.09-.23-2.18-.3-3.26-.21-.43.03-.86.1-1.28.18-.39.07-.78.16-1.16.25-.39.09-.77.18-1.15.28-1.11.28-2.2.4-3.27.35-.42-.02-.84-.07-1.25-.13-.42-.07-.83-.15-1.24-.25-.41-.1-.81-.2-1.2-.32-.4-.12-.78-.25-1.16-.4-.38-.14-.75-.3-1.1-.47C1.45 17.03 1 14.6 1 12c0-3.31 1.34-6.31 3.5-8.5C6.69 1.34 9.69 0 13 0c3.86 0 7 3.14 7 7 0 2.25-1.07 4.25-2.75 5.5C15.92 13.92 14.08 15 12 15c-1.02 0-1.98-.2-2.87-.58-.44-.19-.87-.4-1.28-.65-.42-.25-.82-.52-1.2-.82-.38-.3-.74-.63-1.08-.98-.33-.35-.64-.72-.92-1.1-.28-.38-.54-.78-.75-1.2-.22-.42-.4-.85-.55-1.3-.15-.45-.25-.9-.32-1.35-.07-.47-.1-1-.1-1.5 0-1.1.2-2.1.6-3.1.05-.13.1-.25.15-.38.4-.95.9-1.82 1.5-2.62.6-.8 1.3-1.5 2.1-2.1.8-.6 1.68-1.1 2.6-1.5.13-.05.25-.1.38-.15.35-.14.7-.26 1.08-.35.38-.09.76-.16 1.15-.22.38-.06.78-.1 1.18-.12.4-.02.8-.02 1.2 0 .4.02.8.05 1.2.1.4.05.78.1 1.15.18.38.08.75.16 1.1.26.38.1.72.22 1.08.35.35.13.68.28.98.45.3.17.58.35.85.55.25.2.5.4.72.62.22.22.42.45.62.7.2.22.38.48.55.72.15.25.3.5.42.78.12.28.22.58.3.88.08.3.15.6.2.9.05.3.08.6.1.9.02.3.02.6.02.9s-.02.6-.05.9c-.03.3-.08.6-.12.9-.05.3-.1.6-.18.9-.08.3-.18.58-.28.88-.1.3-.22.58-.35.88-.13.3-.28.58-.42.88-.15.28-.3.55-.48.8-.18.25-.38.5-.58.72-.2.22-.42.45-.65.65-.22.2-.45.4-.7.58-.25.18-.5.35-.78.5-.28.15-.55.28-.85.42-.3.13-.6.25-.9.35-.3.1-.6.18-.9.25-.3.07-.6.12-.9.18-.3.05-.6.08-.9.1-.3.02-.6.02-.9 0-.3-.02-.6-.05-.9-.08-.3-.03-.6-.08-.9-.12-.3-.05-.6-.1-.9-.18-.3-.08-.6-.15-.9-.25-.3-.1-.6-.2-.9-.3-.3-.1-.6-.22-.88-.35-.28-.13-.55-.25-.8-.4-.25-.15-.5-.3-.72-.45-.22-.15-.45-.3-.65-.48-.2-.18-.4-.35-.58-.55-.18-.2-.35-.4-.5-.6-.15-.2-.3-.4-.42-.6-.12-.2-.22-.4-.3-.6-.08-.2-.15-.4-.2-.6-.05-.2-.08-.4-.1-.6-.02-.2-.02-.4-.02-.6s.02-.4.02-.6c.02-.2.05-.4.08-.6.03-.2.08-.4.12-.6.05-.2.1-.4.18-.6.08-.2.18-.4.28-.6.1-.2.22-.4.35-.6.13-.2.28-.4.42-.6.15-.2.3-.38.48-.55.18-.18.38-.35.58-.5.2-.18.42-.35.65-.5.22-.15.45-.3.7-.42.25-.12.5-.22.78-.3.28-.08.55-.15.85-.22.3-.07.6-.12.9-.15.3-.03.6-.05.9-.05s.6.02.9.02z"/></svg>
-                                <a href="https://www.facebook.com/omeralghazali.official/" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-blue-600">omeralghazali.official</a>
-                            </li>
-														<li class="flex items-center">
-															<svg class="w-6 h-6 mr-3 text-blue-500" style="color: #00A1E4;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-															<a href="https://g.co/kgs/Zc1xRw2" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-blue-600">Wiselife Global, Lahore</a>
-														</li>
-														<li class="flex items-center">
-															<div class="w-6 h-6 mr-3 flex items-center justify-center">
-																<svg class="w-5 h-5 text-blue-500" style="color: #00A1E4;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10.5V6a2 2 0 00-2-2h-2.5M3 10.5V6a2 2 0 012-2h2.5m0 0V4a2 2 0 012-2h2a2 2 0 012 2v0m0 0h2.5a2 2 0 012 2v4.5m-14 0v7a2 2 0 002 2h14a2 2 0 002-2v-7"></path></svg>
-															</div>
-															<span class="text-slate-700">Find us on the map:</span>
-														</li>
-														<li>
-															<div class="rounded-lg overflow-hidden mt-2">
-																<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.858525420691!2d74.3554584!3d31.500572299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919055d5c1f3205%3A0xbb78131667f5e9c2!2sWiselife%20Global!5e0!3m2!1sen!2s!4v1751718991680!5m2!1sen!2s" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-															</div>
-														</li>
-                        </ul>
-                    </div>
-                    <!-- <div class="mt-6">
-                        <h4 class="text-xl font-bold mb-3">Visit Our Campus</h4>
-                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fomeralghazali.official%2Fvideos%2Fwiselife-global-has-set-up-a-campus-in-lahore-where-you-will-find-exclusive-and-%2F921858436448333%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-                        </div>
-                    </div> -->
-                </div>
-                <!-- Right Column: Map -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full min-h-[400px] lg:min-h-full mt-6 p-6 md:p-8 rounded-lg shadow-lg space-y-6">
-									<h4 class="text-xl font-bold mb-3">Visit Our Campus</h4>
-									<div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-										<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fomeralghazali.official%2Fvideos%2Fwiselife-global-has-set-up-a-campus-in-lahore-where-you-will-find-exclusive-and-%2F921858436448333%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-									</div>
-                </div>
-            </div>
-        </section>
-        <footer class="text-center py-10 border-t-2 border-slate-200">
-             <h2 class="text-3xl font-bold mb-4">Ready to Build Your Future in AI?</h2>
-             <p class="text-slate-600 max-w-2xl mx-auto mb-6">Join a new generation of innovators and problem-solvers. Your journey starts at Wise Life Academy.</p>
-             <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition-transform transform hover:scale-105" style="background-color: #00A1E4;">
-                 Enroll Now
-             </button>
-        </footer>
-
-    </main>
-
-    <script>
-        const brilliantBlues = ['#00A1E4', '#00B8C8', '#00C2B2', '#00C898', '#00CC80'];
-
-        function wrapLabels(label, maxWidth) {
-            const words = label.split(' ');
-            const lines = [];
-            let currentLine = '';
-            words.forEach(word => {
-                if ((currentLine + ' ' + word).trim().length > maxWidth) {
-                    lines.push(currentLine.trim());
-                    currentLine = word;
-                } else {
-                    currentLine = (currentLine + ' ' + word).trim();
-                }
-            });
-            if (currentLine) {
-                lines.push(currentLine.trim());
-            }
-            return lines.length > 0 ? lines : [label];
-        }
-
-        const tooltipTitleCallback = (tooltipItems) => {
-            const item = tooltipItems[0];
-            let label = item.chart.data.labels[item.dataIndex];
-            if (Array.isArray(label)) {
-              return label.join(' ');
-            }
-            return label;
-        };
+        <nav class="mt-12">
+          <ul class="space-y-4">
+            <li><a href="#" class="text-white text-lg font-medium">Home</a></li>
+            <li><a href="#" class="text-white text-lg font-medium">About Us</a></li>
+            <li><a href="#" class="text-white text-lg font-medium">Purification</a></li>
+            <li><a href="#" class="text-white text-lg font-medium">Spirituality</a></li>
+            <li><a href="#" class="text-white text-lg font-medium">Media</a></li>
+            <li><a href="#" class="text-white text-lg font-medium">Literature</a></li>
+            <li><a href="#" class="text-white text-lg font-medium">Contact Us</a></li>
+            <li><a href="#" class="btn-accent inline-block mt-4">Invite Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="fixed inset-0 bg-black/50 z-40 hidden" id="mobileOverlay"></div>
+  </header>
+  
+  <!-- Hero Slider -->
+  <section class="slider-container h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+    <div class="slide active">
+      <img src="https://zawiyah.org/wp-content/uploads/2022/09/SLIDE-1-HOME-PAGE.png" alt="Fruits of Knowledge" class="w-full h-full object-cover">
+    </div>
+    <div class="slide">
+      <img src="https://zawiyah.org/wp-content/uploads/2022/09/SLIDE-2-HOME-PAGE.png" alt="Character Building Training" class="w-full h-full object-cover">
+    </div>
+    <div class="slide">
+      <img src="https://zawiyah.org/wp-content/uploads/2022/09/SLIDE-2-HOME-PAGE-copy.png" alt="Prophetic Path" class="w-full h-full object-cover">
+    </div>
+    
+    <!-- Slider Dots -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+      <button class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all" data-slide="1" aria-label="Slide 2"></button>
+      <button class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all" data-slide="2" aria-label="Slide 3"></button>
+    </div>
+  </section>
+  
+  <!-- Mission Statement -->
+  <section class="py-16 md:py-24 bg-pattern">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 reveal">
+          <span class="text-primary font-display text-lg tracking-wide">OUR MISSION</span>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-primary mt-2 mb-6">Statement</h2>
+          <p class="text-gray-700 text-lg leading-relaxed mb-8">
+            Our mission is to propagate the authentic teaching of the Quran & Sunnah as understood by the Awliyah & the correctly guided Ulema of the Ahulus Sunnah Wal Jam'ah. This is done under the supervision of <strong>Ahmad Dabbagh</strong> who is a Master in the Science of Purification (Tazkiyah Nafs) and the teacher of <strong>Tareeqah Muhammadiyah</strong>. Ahmad Dabbagh is also the Principal of the UK Academy of Islamic Sciences and the Director of Wiselife Academy.
+          </p>
+          <a href="#" class="btn-primary inline-block">Learn More</a>
+        </div>
         
-        const commonChartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        font: {
-                            size: 12
-                        },
-                        color: '#475569'
-                    }
-                },
-                tooltip: {
-                    callbacks: {
-                        title: tooltipTitleCallback
-                    }
-                }
-            },
-        };
-
-        new Chart(document.getElementById('focusDistributionChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Practical Labs & Exercises', 'Portfolio Project Work', 'Theory & Concepts'],
-                datasets: [{
-                    label: 'Course Focus',
-                    data: [50, 35, 15],
-                    backgroundColor: brilliantBlues.slice(0, 3),
-                    borderColor: '#f8fafc',
-                    borderWidth: 4,
-                    hoverOffset: 8
-                }]
-            },
-            options: {
-                ...commonChartOptions,
-                cutout: '70%',
-            }
+        <div class="order-1 lg:order-2 reveal">
+          <img src="https://zawiyah.org/wp-content/uploads/2022/10/hazrat-sab-final.png" alt="Shaykh Ahmad Dabbagh" class="w-full max-w-md mx-auto rounded-lg shadow-2xl">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Recent Programmes -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      <h2 class="font-display text-3xl md:text-4xl text-primary text-center mb-12 reveal">Recent Programmes</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6 reveal">
+        <!-- Video Cards -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg aspect-video bg-gray-200">
+          <img src="https://zawiyah.org/wp-content/uploads/2022/11/Monday-Weekly-Spiritual-Ascension-Gathering-256x300.jpg" alt="Programme thumbnail" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <button class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center" aria-label="Play video">
+              <svg class="w-6 h-6 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-lg shadow-lg aspect-video bg-gray-200">
+          <img src="https://zawiyah.org/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-03-at-8.46.20-PM-223x300.jpeg" alt="Programme thumbnail" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <button class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center" aria-label="Play video">
+              <svg class="w-6 h-6 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-lg shadow-lg aspect-video bg-gray-200">
+          <img src="https://zawiyah.org/wp-content/uploads/2024/01/NEWLETTER-01-212x300.png" alt="Programme thumbnail" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <button class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center" aria-label="Play video">
+              <svg class="w-6 h-6 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Newsletter & Social -->
+  <section class="py-16 bg-pattern">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Facebook Feed -->
+        <div class="reveal">
+          <h2 class="font-display text-2xl md:text-3xl text-primary mb-6">Follow, Like, and Share</h2>
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="relative h-32 bg-gradient-to-br from-primary to-secondary">
+              <img src="https://zawiyah.org/wp-content/uploads/2022/10/hazrat-sab-final-208x300.png" alt="Cover" class="w-full h-full object-cover opacity-30">
+              <div class="absolute inset-0 flex items-end p-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </div>
+                  <div class="text-white">
+                    <p class="font-semibold">Ahmad Dabbagh</p>
+                    <p class="text-sm text-white/80">164,985 followers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-gray-600 mb-4">Founder of the World Peace Movement, Unveiling the Power of Peace, A Message That Resonates.</p>
+              <a href="https://www.facebook.com/ShaykhAhmadDabbagh/" target="_blank" rel="noopener" class="btn-primary text-sm inline-block px-6 py-2">Follow Page</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Newsletter -->
+        <div class="lg:col-span-2 reveal">
+          <h3 class="font-display text-2xl md:text-3xl text-primary text-center mb-8">Weekly Newsletter</h3>
+          
+          <div class="newsletter-carousel mb-8">
+            <div class="newsletter-item">
+              <img src="https://zawiyah.org/wp-content/uploads/2025/11/TM-Newsletter_Edition-45_Page_01.png" alt="Newsletter Edition 45" class="w-full rounded-lg shadow-lg">
+            </div>
+            <div class="newsletter-item">
+              <img src="https://zawiyah.org/wp-content/uploads/2025/11/TM-Newsletter_Edition-45_Page_11.png" alt="Newsletter Page" class="w-full rounded-lg shadow-lg">
+            </div>
+            <div class="newsletter-item">
+              <img src="https://zawiyah.org/wp-content/uploads/2025/11/TM-Newsletter_Edition-45_Page_10.png" alt="Newsletter Page" class="w-full rounded-lg shadow-lg">
+            </div>
+            <div class="newsletter-item">
+              <img src="https://zawiyah.org/wp-content/uploads/2025/11/TM-Newsletter_Edition-45_Page_09.png" alt="Newsletter Page" class="w-full rounded-lg shadow-lg">
+            </div>
+            <div class="newsletter-item">
+              <img src="https://zawiyah.org/wp-content/uploads/2025/11/TM-Newsletter_Edition-45_Page_08.png" alt="Newsletter Page" class="w-full rounded-lg shadow-lg">
+            </div>
+          </div>
+          
+          <h4 class="font-display text-xl text-primary text-center mb-6">Previous Editions</h4>
+          
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a href="#" class="group">
+              <img src="https://zawiyah.org/wp-content/uploads/2025/11/TM-Newsletter_Edition-45_Page_01-212x300.png" alt="Edition 45" class="w-full rounded-lg shadow group-hover:shadow-lg transition-shadow">
+              <p class="text-center text-sm text-primary font-medium mt-2">Edition No.45</p>
+            </a>
+            <a href="#" class="group">
+              <img src="https://zawiyah.org/wp-content/uploads/2024/10/TM-Newsletter-Edition-40_Page_1-212x300.png" alt="Edition 40" class="w-full rounded-lg shadow group-hover:shadow-lg transition-shadow">
+              <p class="text-center text-sm text-primary font-medium mt-2">Edition No.40</p>
+            </a>
+            <a href="#" class="group">
+              <img src="https://zawiyah.org/wp-content/uploads/2024/01/NEWLETTER-01-212x300.png" alt="Edition 38" class="w-full rounded-lg shadow group-hover:shadow-lg transition-shadow">
+              <p class="text-center text-sm text-primary font-medium mt-2">Edition No.38</p>
+            </a>
+            <a href="#" class="group">
+              <img src="https://zawiyah.org/wp-content/uploads/2023/03/WhatsApp-Image-2023-02-16-at-08.50.07-212x300.jpeg" alt="Edition 24" class="w-full rounded-lg shadow group-hover:shadow-lg transition-shadow">
+              <p class="text-center text-sm text-primary font-medium mt-2">Edition No.24</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Info Cards -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="info-card text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-primary mb-3">Spiritual Ascension</h3>
+          <p class="text-gray-600 text-sm mb-4">Spiritual journey to The Divine Presence (Ascension). From Ilmul Yaqeen to Ainul Yaqeen and finally to Haqqul Yaqeen.</p>
+          <a href="#" class="btn-primary text-sm inline-block px-6 py-2">Start your journey</a>
+        </div>
+        
+        <div class="info-card text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-primary mb-3">Prophetic Path</h3>
+          <p class="text-gray-600 text-sm mb-4">An international organisation conveying the sacred message of Islam and blessed teachings of the last and Final Messenger, Prophet Muhammad.</p>
+          <a href="#" class="btn-primary text-sm inline-block px-6 py-2">Read More</a>
+        </div>
+        
+        <div class="info-card text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
+            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-primary mb-3">Wiselife Academy</h3>
+          <p class="text-gray-600 text-sm mb-4">To transmit the light of Divine and human wisdom in a practical, meaningful and applicable way into everyday lives, solving everyday problems.</p>
+          <a href="#" class="btn-primary text-sm inline-block px-6 py-2">Read More</a>
+        </div>
+        
+        <div class="info-card text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-red-50 flex items-center justify-center">
+            <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-primary mb-3">Dabbagh Welfare Trust</h3>
+          <p class="text-gray-600 text-sm mb-4">A registered international charity, which aims to help the world's poorest people with their sufferings, by distributing collectively Sadqa, Zakat and Lillah.</p>
+          <a href="#" class="btn-primary text-sm inline-block px-6 py-2">Donate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Invite Us CTA -->
+  <section class="py-20 bg-gradient-to-br from-secondary via-primary to-secondary relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <pattern id="islamicPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M10 0L20 10L10 20L0 10L10 0z" fill="white"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#islamicPattern)"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 lg:px-8 text-center relative z-10 reveal">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <span class="w-16 h-px bg-white/30"></span>
+        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+        <span class="w-16 h-px bg-white/30"></span>
+      </div>
+      
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-white mb-6">Invite Us To Your Next Event</h2>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto mb-8">The teacher and Ustadhs of Tareeqah Muhammadiyah travel around the world to help and benefit others from Purification of the body, mind, heart and soul, Perfecting one's character, Marriage, Spiritual illness and much more.</p>
+      <a href="#" class="btn-accent text-base inline-block">INVITE US</a>
+    </div>
+  </section>
+  
+  <!-- Sounds of Heaven -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 reveal">
+      <a href="#" class="block">
+        <img src="https://zawiyah.org/wp-content/uploads/2023/03/Screenshot-2023-03-23-at-16-24-16-SOUNDS-OF-HEAVEN.png" alt="Sounds of Heaven" class="w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+      </a>
+    </div>
+  </section>
+  
+  <!-- Upcoming Events -->
+  <section class="py-16 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <p class="text-primary font-medium uppercase tracking-wider mb-2">Upcoming Events</p>
+        <div class="w-20 h-1 bg-accent mx-auto rounded"></div>
+        <p class="text-gray-600 mt-4">Stay up-to-date with all the upcoming events</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Monday Event -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden reveal">
+          <div class="md:flex">
+            <div class="md:w-1/3">
+              <img src="https://zawiyah.org/wp-content/uploads/2022/11/Monday-Weekly-Spiritual-Ascension-Gathering-256x300.jpg" alt="Awakening" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 md:w-2/3">
+              <h3 class="font-display text-xl text-primary mb-3">Awakening - Spiritual Development</h3>
+              <p class="text-gray-600 text-sm mb-4">"In Actual Life a Downward Movement may Sometimes be made the Beginning of an Ascent." Join us for our Weekly Ascent to the Spiritual Realm.</p>
+              
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span class="font-medium">Every Monday</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span><strong>19:30</strong> (BST)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span class="text-gray-600 text-xs">Please follow us on social media to be up to date with the venue.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Friday Event -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden reveal">
+          <div class="md:flex">
+            <div class="md:w-1/3">
+              <img src="https://zawiyah.org/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-03-at-8.46.20-PM-223x300.jpeg" alt="Self Development" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 md:w-2/3">
+              <h3 class="font-display text-xl text-primary mb-3">Self Development & Human Excellence</h3>
+              <p class="text-gray-600 text-sm mb-4">Join us in our weekly gathering to boost your imaan and find practical guide to get closer to Allah. Quran Recitation, Nasheed, Divine Remembrance, Prayers upon Prophet Muhammad.</p>
+              
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span class="font-medium">Every Friday</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span><strong>19:30</strong> (BST)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span class="text-sm">Bolton Zawiyah<br>128 St George's Road, Bolton BL1 2BZ</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <!-- Start Journey Section -->
+    <div class="py-16 bg-secondary relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <rect width="100%" height="100%" fill="url(#islamicPattern)"/>
+        </svg>
+      </div>
+      
+      <div class="max-w-4xl mx-auto px-4 lg:px-8 text-center relative z-10 reveal">
+        <h2 class="font-display text-3xl md:text-4xl text-white mb-4">Start Your Journey At Your Local Centre</h2>
+        <img src="https://zawiyah.org/wp-content/uploads/2020/07/flag.png" alt="Locations" class="w-full max-w-lg mx-auto">
+      </div>
+    </div>
+    
+    <!-- Newsletter Signup -->
+    <div class="py-12 bg-gray-100">
+      <div class="max-w-4xl mx-auto px-4 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <h3 class="font-display text-2xl text-primary">Sign up to our newsletter</h3>
+          <form class="flex gap-2 w-full md:w-auto">
+            <input type="email" placeholder="Your Email" class="flex-1 md:w-64 px-4 py-3 rounded-full border border-gray-300 focus:border-primary focus:outline-none" required>
+            <button type="submit" class="btn-primary px-6 py-3 rounded-full">SUBMIT</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Footer -->
+    <div class="footer-gradient py-16">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-12">
+          
+          <!-- About -->
+          <div>
+            <img src="https://zawiyah.org/wp-content/uploads/2020/06/footer-logo-copy.png" alt="Tareeqah Muhammadiyah" class="mb-6">
+            <p class="text-gray-300 text-sm leading-relaxed">FRUITS OF KNOWLEDGE CHARACTER BUILDING TRAINING TAUGHT AT PROPHETIC PATH.</p>
+            <p class="text-gray-400 text-sm leading-relaxed mt-4">Have you ever wondered what Islam really wants from you? Have you ever questioned what the end product of Islam is? How is a Muslim really supposed to behave? Is it all just about outward worship or is there more to it?</p>
+          </div>
+          
+          <!-- Contact -->
+          <div>
+            <h4 class="font-display text-xl text-white mb-6">Contact us</h4>
+            <ul class="text-gray-300 text-sm space-y-3">
+              <li>Email: info@zawiyah.org</li>
+              <li>Tel: (+44) 0161 351 1975</li>
+              <li>
+                Address:<br>
+                Muhammadiyah House of Wisdom<br>
+                33 Ridling Lane Hyde,<br>
+                Cheshire SK14 1NP
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Useful Links -->
+          <div>
+            <h4 class="font-display text-xl text-white mb-6">Useful Links</h4>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li><a href="https://propheticpath.co.uk/" target="_blank" rel="noopener" class="hover:text-accent transition-colors">www.propheticpath.co.uk</a></li>
+              <li><a href="https://www.wiselifeacademy.com/" target="_blank" rel="noopener" class="hover:text-accent transition-colors">www.wiselifeacademy.com</a></li>
+              <li><a href="https://www.dabbaghwelfare.org/" target="_blank" rel="noopener" class="hover:text-accent transition-colors">www.dabbaghwelfare.org.uk</a></li>
+              <li><a href="https://www.jamiamuhammadiyah.com/" target="_blank" rel="noopener" class="hover:text-accent transition-colors">www.jamiamuhammadiyah.com</a></li>
+              <li><a href="https://freehealing-ruqyah.com/" target="_blank" rel="noopener" class="hover:text-accent transition-colors">www.freehealing-ruqyah.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Social Footer -->
+    <div class="py-12 bg-warmgray border-t border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8">
+        <h4 class="font-display text-xl text-white text-center mb-8">Follow Us On:</h4>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://www.facebook.com/ShaykhAhmadDabbagh/" target="_blank" rel="noopener" class="group flex flex-col items-center p-6 bg-gray-700/50 rounded-lg hover:bg-primary transition-colors">
+            <svg class="w-8 h-8 text-white group-hover:text-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="text-white text-sm mt-2">Facebook</span>
+          </a>
+          
+          <a href="https://www.instagram.com/sahmaddabbagh/" target="_blank" rel="noopener" class="group flex flex-col items-center p-6 bg-gray-700/50 rounded-lg hover:bg-primary transition-colors">
+            <svg class="w-8 h-8 text-white group-hover:text-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span class="text-white text-sm mt-2">Instagram</span>
+          </a>
+          
+          <a href="https://www.youtube.com/channel/UCFhKY3_zHhsy6ap7TGUaOkQ" target="_blank" rel="noopener" class="group flex flex-col items-center p-6 bg-gray-700/50 rounded-lg hover:bg-primary transition-colors">
+            <svg class="w-8 h-8 text-white group-hover:text-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span class="text-white text-sm mt-2">YouTube</span>
+          </a>
+          
+          <a href="https://twitter.com/sahmaddabbagh" target="_blank" rel="noopener" class="group flex flex-col items-center p-6 bg-gray-700/50 rounded-lg hover:bg-primary transition-colors">
+            <svg class="w-8 h-8 text-white group-hover:text-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span class="text-white text-sm mt-2">Twitter</span>
+          </a>
+          
+          <a href="https://www.tiktok.com/@s.ahmad.dabbagh1" target="_blank" rel="noopener" class="group flex flex-col items-center p-6 bg-gray-700/50 rounded-lg hover:bg-primary transition-colors">
+            <svg class="w-8 h-8 text-white group-hover:text-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            <span class="text-white text-sm mt-2">TikTok</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Initialize variables first
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const sliderDots = document.querySelectorAll('.slider-dot');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Islamic Date Calculator (simplified)
+    function getIslamicDate() {
+      const today = new Date();
+      const months = ['Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani', 'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Shaban', 'Ramadan', 'Shawwal', 'Zul Qadah', 'Zul Hijjah'];
+      
+      // This is a simplified calculation - for accurate dates use a proper library
+      const gregorianDate = today.getDate();
+      const gregorianMonth = today.toLocaleString('en-GB', { month: 'long' });
+      const gregorianYear = today.getFullYear();
+      
+      return `${gregorianDate}-${gregorianMonth}-${gregorianYear}`;
+    }
+    
+    // Set Islamic date
+    const islamicDateEl = document.getElementById('islamicDate');
+    if (islamicDateEl) {
+      islamicDateEl.innerHTML = `<span class="text-white font-medium">${getIslamicDate()}</span>`;
+    }
+    
+    // Hero Slider
+    function showSlide(index) {
+      if (!slides.length || !sliderDots.length) return;
+      
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      
+      sliderDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+        dot.classList.toggle('bg-white', i === index);
+        dot.classList.toggle('bg-white/50', i !== index);
+      });
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+    
+    // Initialize slider
+    if (slides.length > 0) {
+      showSlide(0);
+      
+      // Auto-advance slides
+      if (!prefersReducedMotion) {
+        setInterval(nextSlide, 5000);
+      }
+      
+      // Dot navigation
+      sliderDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          currentSlide = i;
+          showSlide(currentSlide);
         });
-
-        const toolkitLabels = ['Python for AI', 'Pandas & NumPy', 'Git & GitHub', 'Data Visualization', 'Scikit-Learn Intro'];
-        new Chart(document.getElementById('toolkitChart'), {
-            type: 'bar',
-            data: {
-                labels: toolkitLabels.map(label => wrapLabels(label, 16)),
-                datasets: [{
-                    label: 'Skill Emphasis (Hours)',
-                    data: [30, 25, 15, 20, 10],
-                    backgroundColor: brilliantBlues[0],
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                ...commonChartOptions,
-                indexAxis: 'y',
-                 plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                           title: tooltipTitleCallback
-                        }
-                    }
-                }
+      });
+    }
+    
+    // Mobile Menu
+    function openMobileMenu() {
+      if (!mobileMenu || !mobileOverlay || !mobileMenuBtn) return;
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.remove('hidden');
+      mobileMenuBtn.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenuFn() {
+      if (!mobileMenu || !mobileOverlay || !mobileMenuBtn) return;
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.add('hidden');
+      mobileMenuBtn.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', openMobileMenu);
+    }
+    
+    if (closeMobileMenu) {
+      closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+    }
+    
+    if (mobileOverlay) {
+      mobileOverlay.addEventListener('click', closeMobileMenuFn);
+    }
+    
+    // Scroll Reveal Animation
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll('.reveal');
+      
+      if (!revealElements.length) return;
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (prefersReducedMotion) {
+              entry.target.classList.add('visible');
+            } else {
+              entry.target.classList.add('visible');
             }
+            observer.unobserve(entry.target);
+          }
         });
-
-        new Chart(document.getElementById('advancedSkillsChart'), {
-            type: 'radar',
-            data: {
-                labels: ['Natural Language Processing (NLP)', 'Deep Learning', 'Computer Vision', 'Generative AI APIs', 'Model Deployment'],
-                datasets: [{
-                    label: 'Skill Level Achieved',
-                    data: [8, 7, 7, 8, 6],
-                    backgroundColor: 'rgba(0, 194, 178, 0.2)',
-                    borderColor: '#00C2B2',
-                    pointBackgroundColor: '#00C2B2',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#00C2B2',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                ...commonChartOptions,
-                scales: {
-                    r: {
-                        angleLines: { color: '#e2e8f0' },
-                        grid: { color: '#e2e8f0' },
-                        pointLabels: { font: { size: 12 }, color: '#475569' },
-                        ticks: {
-                            backdropColor: 'transparent',
-                            color: '#64748b'
-                        },
-                        suggestedMin: 0,
-                        suggestedMax: 10
-                    }
-                }
-            }
-        });
-
-        new Chart(document.getElementById('finalMonthChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Week 12-15 Focus'],
-                datasets: [
-                    {
-                        label: 'Capstone Development',
-                        data: [50],
-                        backgroundColor: brilliantBlues[1],
-                    },
-                    {
-                        label: 'Interview Prep & Mock Interviews',
-                        data: [30],
-                        backgroundColor: brilliantBlues[2],
-                    },
-                    {
-                        label: 'Portfolio & Resume Clinic',
-                        data: [20],
-                        backgroundColor: brilliantBlues[3],
-                    }
-                ]
-            },
-            options: {
-                ...commonChartOptions,
-                indexAxis: 'y',
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true,
-                         display: false
-                    }
-                }
-            }
-        });
-    </script>
+      }, observerOptions);
+      
+      revealElements.forEach(el => observer.observe(el));
+    }
+    
+    // Initialize on DOM ready
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+    
+    // Keyboard navigation for mobile menu
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
+        closeMobileMenuFn();
+      }
+    });
+  </script>
 </body>
 </html>
